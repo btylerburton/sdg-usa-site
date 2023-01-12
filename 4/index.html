@@ -26,9 +26,8 @@ var opensdg = {
   },
 
   // A hook which can be replaced to alter whether/how the values that are
-  // displayed on indicator tables/graphs get rounded. A "context" parameter
-  // is also passed which contains additional information.
-  dataRounding: function(value, context) {
+  // displayed on indicator tables/graphs get rounded.
+  dataRounding: function(value) {
     // Alterations go here.
     return value;
   },
@@ -38,9 +37,6 @@ var opensdg = {
   dataDisplayAlter: function(callback) {
     this.dataDisplayAlterations.push(callback);
   },
-
-  // Disaggregations which should be ignored on indicator pages.
-  ignoredDisaggregations: null,
 
   language: 'en',
 };
@@ -115,13 +111,13 @@ var translations = {
         <link rel="canonical" href="/">
 
         <!--[if IE 9]>
-        <script src="/open-sdg-site-starter/assets/js/lib/classList.js"></script>
+        <script src="/sdg-usa-site/assets/js/lib/classList.js"></script>
         <![endif]-->
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/open-sdg-site-starter/assets/img/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/open-sdg-site-starter/assets/img/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/open-sdg-site-starter/assets/img/favicons/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/open-sdg-site-starter/assets/img/favicons/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/sdg-usa-site/assets/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/sdg-usa-site/assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/sdg-usa-site/assets/img/favicons/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/sdg-usa-site/assets/img/favicons/favicon.ico" />
 
 
         
@@ -129,7 +125,7 @@ var translations = {
         <link res="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" crossorigin="">
         <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" crossorigin="">
-        <link rel="stylesheet" href="/open-sdg-site-starter/assets/css/style.css?v=20221122153033">
+        <link rel="stylesheet" href="/sdg-usa-site/assets/css/style.css?v=20230112192651">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
@@ -141,7 +137,7 @@ var translations = {
         
 
         <!--[if IE]>
-        <link rel="stylesheet" href="/open-sdg-site-starter/assets/css/ie.css">
+        <link rel="stylesheet" href="/sdg-usa-site/assets/css/ie.css">
         <![endif]-->
 
         
@@ -175,34 +171,34 @@ layout-goal
 <header role="banner" class="">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light flex-wrap align-items-start">
-            <a class="navbar-brand" href="/open-sdg-site-starter/" id="home" aria-label="Go to homepage" title="Go to homepage">
-    <img src="/open-sdg-site-starter/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
+            <a class="navbar-brand" href="/sdg-usa-site/" id="home">
+    <img src="/sdg-usa-site/assets/img/SDG_logo.png" alt="Sustainable Development Goals - 17 Goals to Transform our World" />
 </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Show navigation menu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="d-flex flex-wrap w-100 justify-content-between">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav" id="menu"><li class="nav-item ">
-    <a class="nav-link" href="/open-sdg-site-starter/goals">Goals</a>
+    <a class="nav-link" href="/sdg-usa-site/goals">Goals</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/open-sdg-site-starter/reporting-status">Reporting Status</a>
+    <a class="nav-link" href="/sdg-usa-site/reporting-status">Reporting Status</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/open-sdg-site-starter/about">About</a>
+    <a class="nav-link" href="/sdg-usa-site/about">About</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/open-sdg-site-starter/faq">FAQ</a>
+    <a class="nav-link" href="/sdg-usa-site/faq">FAQ</a>
 </li><li class="nav-item ">
-    <a class="nav-link" href="/open-sdg-site-starter/news">Updates</a>
+    <a class="nav-link" href="/sdg-usa-site/news">Updates</a>
 </li></ul>
     
                 </div>
                 <div class="header-search-bar">
-                    <form class="align-self-lg-end" id="search" action="/open-sdg-site-starter/search/">
+                    <form class="align-self-lg-end" id="search" action="/sdg-usa-site/search/">
     <div class="input-group">
         <label class="visually-hidden" for="indicator_search">Search</label>
         <input class="form-control" type="search" name="q" id="indicator_search" title="Search">
         <span class="input-group-append">
-            <button class="btn btn-outline-secondary ms-n5" aria-label="Site search" id="search-btn" type="submit">
+            <button class="btn btn-outline-secondary ms-n5" aria-label="Search" id="search-btn" type="submit">
                 <i class="fa fa-search"></i>
             </button>
         </span>
@@ -224,7 +220,7 @@ layout-goal
       English
     </button>
     <ul class="dropdown-menu"><li>
-            <a class="dropdown-item" href="/open-sdg-site-starter/es/4/">
+            <a class="dropdown-item" href="/sdg-usa-site/es/4/">
               Español
             </a>
           </li></ul>
@@ -236,7 +232,7 @@ layout-goal
                     <span class="no-js-language-toggle"><div class="language-toggle-container d-flex">
     <i class="fa fa-globe language-toggle-globe-links"></i>
     <ul class="language-toggle-links list-unstyled list-inline"><li class="language-option-es list-inline-item">
-            <a class="language-toggle-link" href="/open-sdg-site-starter/es/4/">
+            <a class="language-toggle-link" href="/sdg-usa-site/es/4/">
                 Español
             </a>
         </li></ul>
@@ -260,10 +256,10 @@ data-event-label="high"
     <ol aria-label="breadcrumb" class="breadcrumb" style="--bs-breadcrumb-divider: '&rsaquo;';">
         
         <li class="breadcrumb-item" >
-            <a href="/open-sdg-site-starter/">Home</a>
+            <a href="/sdg-usa-site/">Home</a>
         </li>
         <li class="breadcrumb-item" >
-            <a href="/open-sdg-site-starter/goals">Goals</a>
+            <a href="/sdg-usa-site/goals">Goals</a>
         </li>
         
         
@@ -286,24 +282,16 @@ data-event-label="high"
 </div>
 
 
-
-
-
-
 <div id="main-content" class="container" role="main">
 
   
 
 
 
-  <div class="container g-0 ">
-    <div class="row align-items-end">
-      <div class="col">
-        <h2 class="goal-page-heading">Targets and indicators</h2>
-      </div>
-      
-    </div>
-    <hr class="goal-page-column-header-rule">
+  <div class="container g-0">
+    <h2 class="goal-page-heading">Targets and indicators</h2>
+
+    
     
       
       <div class="row align-items-start goal-target">
@@ -315,7 +303,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span>
           </div>
-          
       </div>
         
 
@@ -333,7 +320,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-1-1">Proportion of children and young people (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-1-1">Proportion of children and young people (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex</a></span>
               
 
 
@@ -373,7 +360,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-1-2">Completion rate (primary education, lower secondary education, upper secondary education)</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-1-2">Completion rate (primary education, lower secondary education, upper secondary education)</a></span>
               
 
 
@@ -410,7 +397,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2030, ensure that all girls and boys have access to quality early childhood development, care and pre‐primary education so that they are ready for primary education</span>
           </div>
-          
       </div>
         
 
@@ -428,7 +414,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-2-1">Proportion of children aged 24-59 months who are developmentally on track in health, learning and psychosocial well-being, by sex</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-2-1">Proportion of children aged 24-59 months who are developmentally on track in health, learning and psychosocial well-being, by sex</a></span>
               
 
 
@@ -468,7 +454,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-2-2">Participation rate in organized learning (one year before the official primary entry age), by sex</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-2-2">Participation rate in organized learning (one year before the official primary entry age), by sex</a></span>
               
 
 
@@ -505,7 +491,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2030, ensure equal access for all women and men to affordable and quality technical, vocational and tertiary education, including university</span>
           </div>
-          
       </div>
         
 
@@ -523,7 +508,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-3-1">Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-3-1">Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex</a></span>
               
 
 
@@ -560,7 +545,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2030, substantially increase the number of youth and adults who have relevant skills, including technical and vocational skills, for employment, decent jobs and entrepreneurship</span>
           </div>
-          
       </div>
         
 
@@ -578,7 +562,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-4-1">Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-4-1">Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill</a></span>
               
 
 
@@ -615,7 +599,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2030, eliminate gender disparities in education and ensure equal access to all levels of education and vocational training for the vulnerable, including persons with disabilities, indigenous peoples and children in vulnerable situations</span>
           </div>
-          
       </div>
         
 
@@ -633,7 +616,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-5-1">Parity indices (female/male, rural/urban, bottom/top wealth quintile and others such as disability status, indigenous peoples and conflict-affected, as data become available) for all education indicators on this list that can be disaggregated</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-5-1">Parity indices (female/male, rural/urban, bottom/top wealth quintile and others such as disability status, indigenous peoples and conflict-affected, as data become available) for all education indicators on this list that can be disaggregated</a></span>
               
 
 
@@ -670,7 +653,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2030, ensure that all youth and a substantial proportion of adults, both men and women, achieve literacy and numeracy</span>
           </div>
-          
       </div>
         
 
@@ -688,7 +670,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-6-1">Proportion of population in a given age group achieving at least a fixed level of proficiency in functional (a) literacy and (b) numeracy skills, by sex</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-6-1">Proportion of population in a given age group achieving at least a fixed level of proficiency in functional (a) literacy and (b) numeracy skills, by sex</a></span>
               
 
 
@@ -725,7 +707,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2030, ensure that all learners acquire the knowledge and skills needed to promote sustainable development, including, among others, through education for sustainable development and sustainable lifestyles, human rights, gender equality, promotion of a culture of peace and non-violence, global citizenship and appreciation of cultural diversity and of culture’s contribution to sustainable development</span>
           </div>
-          
       </div>
         
 
@@ -743,7 +724,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-7-1">Extent to which (i) global citizenship education and (ii) education for sustainable development are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-7-1">Extent to which (i) global citizenship education and (ii) education for sustainable development are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment</a></span>
               
 
 
@@ -780,7 +761,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">Build and upgrade education facilities that are child, disability and gender sensitive and provide safe, non-violent, inclusive and effective learning environments for all</span>
           </div>
-          
       </div>
         
 
@@ -798,7 +778,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-a-1">Proportion of schools offering basic services, by type of service</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-a-1">Proportion of schools offering basic services, by type of service</a></span>
               
 
 
@@ -835,7 +815,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2020, substantially expand globally the number of scholarships available to developing countries, in particular least developed countries, small island developing States and African countries, for enrolment in higher education, including vocational training and information and communications technology, technical, engineering and scientific programmes, in developed countries and other developing countries</span>
           </div>
-          
       </div>
         
 
@@ -853,7 +832,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-b-1">Volume of official development assistance flows for scholarships by sector and type of study</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-b-1">Volume of official development assistance flows for scholarships by sector and type of study</a></span>
               
 
 
@@ -890,7 +869,6 @@ data-event-label="high"
           <div class="col goal-page-target-name">
             <span class="target-name">By 2030, substantially increase the supply of qualified teachers, including through international cooperation for teacher training in developing countries, especially least developed countries and small island developing States</span>
           </div>
-          
       </div>
         
 
@@ -908,7 +886,7 @@ data-event-label="high"
             </div>
             <div class="col goal-page-indicator-name">
               
-              <span class="indicator-name"><a href="/open-sdg-site-starter/4-c-1">Proportion of teachers with the minimum required qualifications, by education level</a></span>
+              <span class="indicator-name"><a href="/sdg-usa-site/4-c-1">Proportion of teachers with the minimum required qualifications, by education level</a></span>
               
 
 
@@ -951,7 +929,7 @@ data-event-label="high"
                         </li>
                         
                         <li>
-                            <a href="/open-sdg-site-starter/contact-us">Contact us</a>
+                            <a href="/sdg-usa-site/contact-us">Contact us</a>
                             
                         </li>
                         <li>
@@ -965,14 +943,14 @@ data-event-label="high"
                             
                         </li>
                         <li>
-                            <a href="/open-sdg-site-starter/about/cookies-and-privacy/">Cookies</a>
+                            <a href="/sdg-usa-site/about/cookies-and-privacy/">Cookies</a>
                             
                         </li>
                         
                         
                         
                         <li>
-                            <a href="/open-sdg-site-starter/config">Configuration</a>
+                            <a href="/sdg-usa-site/config">Configuration</a>
                         </li>
                         </ul>
                 </div>
@@ -982,12 +960,12 @@ data-event-label="high"
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 <script src="//cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js" integrity="sha256-Y26AMvaIfrZ1EQU49pf6H4QzVTrOI8m9wQYKkftBt4s=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/patternomaly@1.3.2/dist/patternomaly.js"></script>
 
@@ -1008,12 +986,12 @@ data-event-label="high"
 <script>translations['search'] = translations['search'] || {};
     translations['search']['search'] = 'Search';</script>
 
-<script src='/open-sdg-site-starter/assets/js/sdg.js?v=20221122153033'></script>
+<script src='/sdg-usa-site/assets/js/sdg.js?v=20230112192651'></script>
 
 
     
     
-    <script src="/open-sdg-site-starter/assets/js/custom.js?v=20221122153033"></script><script>
+    <script src="/sdg-usa-site/assets/js/custom.js?v=20230112192651"></script><script>
     new indicatorInit();
     new accessibilitySwitcher();
 </script>
